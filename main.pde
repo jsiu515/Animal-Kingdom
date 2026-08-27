@@ -1,5 +1,5 @@
 Animal a = new Animal();
-
+Grid g = new Grid(1);
 void setup(){
   size(600,600);
   
@@ -7,4 +7,5 @@ void setup(){
 
 
 void draw(){
+  g.show();
 }

@@ -10,13 +10,22 @@ class Grid{
  }
  void show(){
    for(int i = 0;i < boxes.size();i++){
+     
+     if(boxes.get(i).hover()){
+       fill(255,0,0);
+     }
+     if(mouseDown){
+       fill(0,0,255);
+     }
      boxes.get(i).show();
+     fill(255);
    }
  }
 }
 
 class Box{
   float x,y;
+  Animal a;
   public Box(float x,float y){
     this.x = x;
     this.y = y;
@@ -24,5 +33,14 @@ class Box{
   }
   void show(){
     rect(x,y,30,30);
+    if(a != null){
+      a.show();
+    }
+  }
+  boolean hover(){
+    if((mouseX <= this.x+20 && mouseX >= this.x)&&(mouseY <= this.y+20 && mouseY >= this.y)){
+      return true;
+    }
+    return false;
   }
 }

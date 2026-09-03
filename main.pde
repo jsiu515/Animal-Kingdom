@@ -4,6 +4,7 @@ String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus"
 
 Animal a = new Animal();
 Grid g = new Grid(1);
+boolean mouseDown;
 void setup(){
   size(600,600);
   String path = sketchPath("Animals"); 
@@ -22,4 +23,10 @@ void setup(){
 void draw(){
   g.show();
   
+}
+void mousePressed(){
+  mouseDown = true;
+}
+void mouseReleased(){
+  mouseDown = false;
 }

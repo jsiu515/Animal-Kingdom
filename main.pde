@@ -1,8 +1,7 @@
 PImage[] images; 
 String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus","Clownfish","ElectricEel","Tadpole", "TreeFrog","Chameleon","DesertIguana","BoxTurtle","Alligator","Pterodactyl","Triceratops","Wolf","Gorilla","Tiger","Elephant","Dragon"};
+HashMap<PImage,Integer> bank;
 
-
-Animal a = new Animal();
 Grid g = new Grid(1);
 boolean mouseDown;
 void setup(){
@@ -17,6 +16,12 @@ void setup(){
       images[i] = loadImage(path+"/"+animalNames[i]+".png");
     }
   }
+  bank = new HashMap<PImage,Integer>();
+  for (int i = 0; i < fileCount; i++){
+    
+    bank.put(images[i],
+  }
+  
 }
 
 

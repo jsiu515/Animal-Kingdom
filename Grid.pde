@@ -13,6 +13,7 @@ class Grid{
      
      if(boxes.get(i).hover()){
        fill(255,0,0);
+       boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y));
      }
      if(mouseDown){
        fill(0,0,255);
@@ -42,5 +43,8 @@ class Box{
       return true;
     }
     return false;
+  }
+  void setAnimal(Animal A){
+    this.a = A;
   }
 }

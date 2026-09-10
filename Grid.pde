@@ -13,7 +13,7 @@ class Grid{
      
      if(boxes.get(i).hover()){
        fill(255,0,0);
-       boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y));
+       boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y,animalNames[0]));
      }
      if(mouseDown){
        fill(0,0,255);

@@ -2,7 +2,7 @@ PImage[] images;
 String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus","Clownfish","ElectricEel","Tadpole", "TreeFrog","Chameleon","DesertIguana","BoxTurtle","Alligator","Pterodactyl","Triceratops","Wolf","Gorilla","Tiger","Elephant","Dragon"};
 HashMap<String,Integer> bank;
 HashMap<String,Integer> cost;
-
+Button b = new Button(100,100);
 Grid g = new Grid(1);
 boolean mouseDown;
 int money = 250;
@@ -38,7 +38,7 @@ void setup(){
 
 void draw(){
   g.show();
-  
+  b.show();
 }
 void mousePressed(){
   mouseDown = true;

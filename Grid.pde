@@ -11,12 +11,10 @@ class Grid{
  void show(){
    for(int i = 0;i < boxes.size();i++){
      
-     if(boxes.get(i).hover()){
+     if(b.clicked()){
+       print("clicked on the button");
        fill(255,0,0);
        boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y,animalNames[0]));
-     }
-     if(mouseDown){
-       fill(0,0,255);
      }
      boxes.get(i).show();
      fill(255);

@@ -28,6 +28,8 @@ class Grid{
        
      }
      
+     boxes.get(i).show();
+     boxes.get(i).grabAnimal();
      fill(255);
      cooldown++;
    }
@@ -56,5 +58,19 @@ class Box{
   }
   void setAnimal(Animal A){
     this.a = A;
+  }
+  boolean clicked(){
+    if(mouseX >= this.x &&mouseX <= this.x+30&& mouseY >= this.y&&mouseY <= this.y+30&&mouseDown){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  void grabAnimal(){
+    if (clicked() == true && this.a != null){
+      grabbed = this.a;
+      lastbox = this;
+    }
   }
 }

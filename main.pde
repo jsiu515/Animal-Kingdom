@@ -5,6 +5,8 @@ HashMap<String,Integer> cost;
 Button b = new Button(100,100);
 Grid g = new Grid(1);
 MoneyMaker m = new MoneyMaker();
+Animal grabbed;
+Box lastbox;
 boolean mouseDown;
 int money = 250;
 void setup(){
@@ -38,13 +40,23 @@ void setup(){
 
 
 void draw(){
+  background(255,255,255);
   g.show();
   b.show();
   m.show();
+  if (grabbed != null){
+    grabbed.x = mouseX;
+    grabbed.y = mouseY;
+  }
 }
 void mousePressed(){
   mouseDown = true;
 }
 void mouseReleased(){
   mouseDown = false;
+  if (grabbed != null){
+    grabbed.x = lastbox.x;
+    grabbed.y = lastbox.y;
+    grabbed = null;
+  }
 }

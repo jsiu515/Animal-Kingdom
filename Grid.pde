@@ -1,5 +1,6 @@
 class Grid{
- ArrayList<Box> boxes; 
+ ArrayList<Box> boxes;
+ int cooldown = 0;
  public Grid(int level){
    boxes = new ArrayList<Box>();
    for(int x = 0; x < 3;x++){
@@ -10,16 +11,27 @@ class Grid{
  }
  void show(){
    for(int i = 0;i < boxes.size();i++){
-     
-     if(b.clicked()){
+     boxes.get(i).show();
+     if(b.clicked()&&cooldown >= 100){
        print("clicked on the button");
        fill(255,0,0);
-       boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y,animalNames[0]));
+       while(i < boxes.size() && boxes.get(i).a != null){
+         i++;
+         //if(i > boxes.size()){
+         //  break;
+         //}
+       }
+       if(i < boxes.size()){
+         boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y,animalNames[0]));
+         cooldown = 0;
+       }
        
      }
+     
      boxes.get(i).show();
      boxes.get(i).grabAnimal();
      fill(255);
+     cooldown++;
    }
  }
 }

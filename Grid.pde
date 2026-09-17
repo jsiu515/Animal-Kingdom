@@ -12,6 +12,7 @@ class Grid{
  void show(){
    for(int i = 0;i < boxes.size();i++){
      boxes.get(i).show();
+     boxes.get(i).grabAnimal();
      if(b.clicked()&&cooldown >= 100){
        print("clicked on the button");
        fill(255,0,0);
@@ -28,8 +29,7 @@ class Grid{
        
      }
      
-     boxes.get(i).show();
-     boxes.get(i).grabAnimal();
+     
      fill(255);
      cooldown++;
    }

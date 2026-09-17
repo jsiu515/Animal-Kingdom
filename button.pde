@@ -6,7 +6,7 @@ class Button{
     this.y = y;
   }
   public boolean clicked(){
-    if(mouseX >= this.x+30 &&mouseX <= this.x-30&& mouseY >= this.y+30&&mouseY <= this.y+30&&mouseDown){
+    if(mouseX >= this.x &&mouseX <= this.x+30&& mouseY >= this.y&&mouseY <= this.y+30&&mouseDown){
       return true;
     }
     else{

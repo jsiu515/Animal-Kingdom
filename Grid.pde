@@ -15,6 +15,7 @@ class Grid{
        print("clicked on the button");
        fill(255,0,0);
        boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y,animalNames[0]));
+       
      }
      boxes.get(i).show();
      fill(255);

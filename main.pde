@@ -4,6 +4,7 @@ HashMap<String,Integer> bank;
 HashMap<String,Integer> cost;
 
 Grid g = new Grid(1);
+MoneyMaker m = new MoneyMaker();
 boolean mouseDown;
 int money = 250;
 void setup(){
@@ -38,7 +39,7 @@ void setup(){
 
 void draw(){
   g.show();
-  
+  m.show();
 }
 void mousePressed(){
   mouseDown = true;

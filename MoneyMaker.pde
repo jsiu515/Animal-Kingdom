@@ -9,6 +9,18 @@ class MoneyMaker{
   void show(){
     for (int i = 0; i < crates.size();i++){
       crates.get(i).show();
+      if(crates.get(i).hover()){
+        fill(255,0,0);
+        crates.get(i).setAnimal(new Animal(images[0],crates.get(i).x,crates.get(i).y,animalNames[0]));
+      }
+    }
+    
+  }
+  void generateMoney(){
+    for (int i = 0; i < crates.size();i++){
+      if (crates.get(i).a != null){
+        money += crates.get(i).a.wage;
+      }
     }
   }
 }

@@ -7,6 +7,7 @@ Grid g = new Grid(1);
 MoneyMaker m = new MoneyMaker();
 Animal grabbed;
 Box lastbox;
+Box hoverbox;
 boolean mouseDown;
 int money = 250;
 void setup(){
@@ -51,12 +52,33 @@ void draw(){
 }
 void mousePressed(){
   mouseDown = true;
+  
 }
 void mouseReleased(){
   mouseDown = false;
   if (grabbed != null){
-    grabbed.x = lastbox.x;
-    grabbed.y = lastbox.y;
+    for (int i = 0; i < g.boxes.size();i++){
+      if (g.boxes.get(i).hover() == true){
+        hoverbox = g.boxes.get(i);
+      }
+    }
+    for (int i = 0; i < m.crates.size();i++){
+      if (m.crates.get(i).hover() == true){
+        hoverbox = m.crates.get(i);
+      }
+    }
+    if (hoverbox == null){
+      grabbed.x = lastbox.x;
+      grabbed.y = lastbox.y;
+    }
+    else{
+      grabbed.x = hoverbox.x;
+      grabbed.y = hoverbox.y;
+      hoverbox.a = grabbed;
+      lastbox.a = null;
+      hoverbox = null;
+    }
+
     grabbed = null;
   }
 }

@@ -9,6 +9,7 @@ class MoneyMaker{
   void show(){
     for (int i = 0; i < crates.size();i++){
       crates.get(i).show();
+      crates.get(i).grabAnimal();
       //if(crates.get(i).hover()){
       //  fill(255,0,0);
       //  crates.get(i).setAnimal(new Animal(images[0],crates.get(i).x,crates.get(i).y,animalNames[0]));

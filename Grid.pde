@@ -68,7 +68,7 @@ class Box{
     }
   }
   void grabAnimal(){
-    if (clicked() == true && this.a != null){
+    if (clicked() == true && this.a != null && grabbed == null){
       grabbed = this.a;
       lastbox = this;
     }

@@ -48,6 +48,7 @@ void draw(){
   if (grabbed != null){
     grabbed.x = mouseX;
     grabbed.y = mouseY;
+    grabbed.show();
   }
 }
 void mousePressed(){
@@ -70,13 +71,19 @@ void mouseReleased(){
     if (hoverbox == null){
       grabbed.x = lastbox.x;
       grabbed.y = lastbox.y;
+      lastbox.a = grabbed;
     }
     else{
-      grabbed.x = hoverbox.x;
-      grabbed.y = hoverbox.y;
-      hoverbox.a = grabbed;
-      lastbox.a = null;
-      hoverbox = null;
+      if(hoverbox.a != null){
+        hoverbox.merge(grabbed);
+      }
+      else{
+        grabbed.x = hoverbox.x;
+        grabbed.y = hoverbox.y;
+        hoverbox.a = grabbed;
+        lastbox.a = null;
+        hoverbox = null;
+      }
     }
 
     grabbed = null;

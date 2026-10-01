@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Grid{
  ArrayList<Box> boxes;
  int cooldown = 0;
@@ -71,6 +73,14 @@ class Box{
     if (clicked() == true && this.a != null && grabbed == null){
       grabbed = this.a;
       lastbox = this;
+      this.a = null;
+    }
+  }
+  void merge(Animal b){
+    if(this.a.name.equals(b.name)){
+      int in = Arrays.asList(animalNames).indexOf(this.a.name);
+      
+      this.a = new Animal(images[in+1],this.a.x,this.a.y,animalNames[in+1]);
     }
   }
 }

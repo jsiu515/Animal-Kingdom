@@ -50,6 +50,8 @@ void draw(){
     grabbed.y = mouseY;
     grabbed.show();
   }
+  fill(0);
+  text(money, 30,120);
 }
 void mousePressed(){
   mouseDown = true;
@@ -69,6 +71,11 @@ void mouseReleased(){
       }
     }
     if (hoverbox == null){
+      grabbed.x = lastbox.x;
+      grabbed.y = lastbox.y;
+      lastbox.a = grabbed;
+    }
+    else if(lastbox == hoverbox){
       grabbed.x = lastbox.x;
       grabbed.y = lastbox.y;
       lastbox.a = grabbed;

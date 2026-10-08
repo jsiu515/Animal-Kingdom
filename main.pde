@@ -82,6 +82,11 @@ void mouseReleased(){
       grabbed.y = lastbox.y;
       lastbox.a = grabbed;
     }
+    else if(hoverbox.a != null && !(hoverbox.a.name.equals(grabbed.name))){
+      grabbed.x = lastbox.x;
+      grabbed.y = lastbox.y;
+      lastbox.a = grabbed;
+    }
     else{
       if(hoverbox.a != null){
         hoverbox.merge(grabbed);

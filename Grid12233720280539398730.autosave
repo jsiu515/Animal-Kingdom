@@ -1,20 +1,13 @@
-import java.util.Arrays;
-
 class Grid{
  ArrayList<Box> boxes;
  int cooldown = 0;
  public Grid(int level){
    boxes = new ArrayList<Box>();
-   for(int x = 0; x < 5;x++){
-     for (int y = 0; y < 5;y++){
-       Box bottom = new Box(x*35,y*35);
-       if (x >= 3 || y >= 3){
-         bottom.unlocked = false;
-       }
-       boxes.add(bottom);
+   for(int x = 0; x < 3;x++){
+     for (int y = 0; y < 3;y++){
+       boxes.add(new Box(x*35,y*35));
      }
    }
-   
  }
  void show(){
    for(int i = 0;i < boxes.size();i++){
@@ -29,9 +22,10 @@ class Grid{
          //  break;
          //}
        }
-       if(i < boxes.size()){
+       if(i < boxes.size() && money >= 50){
          boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y,animalNames[0]));
          cooldown = 0;
+         money -= 50;
        }
        
      }
@@ -46,19 +40,16 @@ class Grid{
 class Box{
   float x,y;
   Animal a;
-  boolean unlocked = true;
   public Box(float x,float y){
     this.x = x;
     this.y = y;
     
   }
   void show(){
+    fill(255,255,255);
     rect(x,y,30,30);
     if(a != null){
       a.show();
-    }
-    if (unlocked == false){
-      
     }
   }
   boolean hover(){
@@ -82,14 +73,6 @@ class Box{
     if (clicked() == true && this.a != null && grabbed == null){
       grabbed = this.a;
       lastbox = this;
-      this.a = null;
-    }
-  }
-  void merge(Animal b){
-    if(this.a.name.equals(b.name)){
-      int in = Arrays.asList(animalNames).indexOf(this.a.name);
-      
-      this.a = new Animal(images[in+1],this.a.x,this.a.y,animalNames[in+1]);
     }
   }
 }

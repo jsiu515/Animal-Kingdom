@@ -1,9 +1,8 @@
 PImage[] images; 
-PImage chain;
 String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus","Clownfish","ElectricEel","Tadpole", "TreeFrog","Chameleon","DesertIguana","BoxTurtle","Alligator","Pterodactyl","Triceratops","Wolf","Gorilla","Tiger","Elephant","Dragon"};
 HashMap<String,Integer> bank;
 HashMap<String,Integer> cost;
-Button b = new Button(200,200);
+Button b = new Button(100,100);
 Grid g = new Grid(1);
 MoneyMaker m = new MoneyMaker();
 Animal grabbed;
@@ -23,7 +22,6 @@ void setup(){
       images[i] = loadImage(path+"/"+animalNames[i]+".png");
     }
   }
-  chain = loadImage("Chain.png");
   bank = new HashMap<String,Integer>();
   cost = new HashMap<String,Integer>();
   int wage = 5;
@@ -47,11 +45,13 @@ void draw(){
   g.show();
   b.show();
   m.show();
+  m.generateMoney();
   if (grabbed != null){
     grabbed.x = mouseX;
     grabbed.y = mouseY;
-    grabbed.show();
   }
+  fill(0);
+  text("Money: " + money,500,20);
 }
 void mousePressed(){
   mouseDown = true;
@@ -73,19 +73,13 @@ void mouseReleased(){
     if (hoverbox == null){
       grabbed.x = lastbox.x;
       grabbed.y = lastbox.y;
-      lastbox.a = grabbed;
     }
     else{
-      if(hoverbox.a != null){
-        hoverbox.merge(grabbed);
-      }
-      else{
-        grabbed.x = hoverbox.x;
-        grabbed.y = hoverbox.y;
-        hoverbox.a = grabbed;
-        lastbox.a = null;
-        hoverbox = null;
-      }
+      grabbed.x = hoverbox.x;
+      grabbed.y = hoverbox.y;
+      hoverbox.a = grabbed;
+      lastbox.a = null;
+      hoverbox = null;
     }
 
     grabbed = null;

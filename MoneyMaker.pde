@@ -1,5 +1,6 @@
 class MoneyMaker{
   ArrayList<Box> crates;
+  int timer = 0;
   public MoneyMaker(){
     crates = new ArrayList<Box>();
     crates.add(new Box(300,0));
@@ -18,10 +19,16 @@ class MoneyMaker{
     
   }
   void generateMoney(){
+    timer += 1;
+    boolean gotmoney = false;
     for (int i = 0; i < crates.size();i++){
-      if (crates.get(i).a != null){
+      if (crates.get(i).a != null && timer >= 75){
         money += crates.get(i).a.wage;
+        gotmoney = true;
       }
+    }
+    if (gotmoney == true){
+      timer = 0;
     }
   }
 }

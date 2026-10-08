@@ -20,7 +20,7 @@ class Grid{
    for(int i = 0;i < boxes.size();i++){
      boxes.get(i).show();
      boxes.get(i).grabAnimal();
-     if(b.clicked()&&cooldown >= 100){
+     if(b.clicked()&&cooldown >= 100 && money >= 50){
        print("clicked on the button");
        fill(255,0,0);
        while(i < boxes.size() && boxes.get(i).a != null){
@@ -29,8 +29,9 @@ class Grid{
          //  break;
          //}
        }
-       if(i < boxes.size()){
+       if(i < boxes.size() && boxes.get(i).unlocked == true){
          boxes.get(i).setAnimal(new Animal(images[0],boxes.get(i).x,boxes.get(i).y,animalNames[0]));
+         money -= 50;
          cooldown = 0;
        }
        
@@ -46,11 +47,12 @@ class Grid{
 class Box{
   float x,y;
   Animal a;
+  Chain c;
   boolean unlocked = true;
   public Box(float x,float y){
     this.x = x;
     this.y = y;
-    
+    c = new Chain(x,y);
   }
   void show(){
     fill (255);
@@ -59,7 +61,7 @@ class Box{
       a.show();
     }
     if (unlocked == false){
-      
+      c.show();
     }
   }
   boolean hover(){

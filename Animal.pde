@@ -15,3 +15,13 @@ class Animal{
     image(image,x,y,30,30);
   }
 }
+
+class Chain extends Animal{
+  Chain(float x,float y){
+    super(chain,x,y,"chain");
+
+  }
+  void show(){
+    image(chain,x,y,30,30);
+  }
+}

@@ -4,8 +4,8 @@ String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus"
 HashMap<String,Integer> bank;
 HashMap<String,Integer> cost;
 Button b = new Button(200,200);
-Grid g = new Grid(1);
-MoneyMaker m = new MoneyMaker();
+Grid g;
+MoneyMaker m;
 Animal grabbed;
 Box lastbox;
 Box hoverbox;
@@ -23,7 +23,7 @@ void setup(){
       images[i] = loadImage(path+"/"+animalNames[i]+".png");
     }
   }
-  chain = loadImage("Chain.png");
+  chain = loadImage(path+"/Chain.png");
   bank = new HashMap<String,Integer>();
   cost = new HashMap<String,Integer>();
   int wage = 5;
@@ -31,6 +31,7 @@ void setup(){
     bank.put(animalNames[i],wage);
     wage*=2;
   }
+  bank.put("chain",0);
   int price = 50;
   int change = 10;
   for (int i = 0; i < animalNames.length;i++){
@@ -38,7 +39,8 @@ void setup(){
     price += change;
     change *=2;
   }
-  
+  m = new MoneyMaker();
+  g = new Grid(1);
 }
 
 
@@ -47,13 +49,14 @@ void draw(){
   g.show();
   b.show();
   m.show();
+  m.generateMoney();
   if (grabbed != null){
     grabbed.x = mouseX;
     grabbed.y = mouseY;
     grabbed.show();
   }
   fill(0);
-  text(money, 30,120);
+  text("Money: " + money, 500,50);
 }
 void mousePressed(){
   mouseDown = true;

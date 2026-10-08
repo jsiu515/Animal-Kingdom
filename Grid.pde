@@ -53,6 +53,7 @@ class Box{
     
   }
   void show(){
+    fill (255);
     rect(x,y,30,30);
     if(a != null){
       a.show();
@@ -62,7 +63,7 @@ class Box{
     }
   }
   boolean hover(){
-    if((mouseX <= this.x+20 && mouseX >= this.x)&&(mouseY <= this.y+20 && mouseY >= this.y)){
+    if((mouseX <= this.x+30 && mouseX >= this.x)&&(mouseY <= this.y+30 && mouseY >= this.y)){
       return true;
     }
     return false;

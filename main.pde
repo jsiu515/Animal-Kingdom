@@ -4,13 +4,14 @@ String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus"
 HashMap<String,Integer> bank;
 HashMap<String,Integer> cost;
 Button b = new Button(200,200);
+Button unlock = new Button(250,250);
 Grid g;
 MoneyMaker m;
 Animal grabbed;
 Box lastbox;
 Box hoverbox;
 boolean mouseDown;
-int money = 250;
+int money = 6000;
 void setup(){
   size(600,600);
   String path = sketchPath("Animals"); 
@@ -29,7 +30,7 @@ void setup(){
   int wage = 5;
   for (int i = 0; i < animalNames.length; i++){
     bank.put(animalNames[i],wage);
-    wage*=2;
+    wage*=1.5;
   }
   bank.put("chain",0);
   int price = 50;
@@ -48,6 +49,7 @@ void draw(){
   background(255,255,255);
   g.show();
   b.show();
+  unlock.show();
   m.show();
   m.generateMoney();
   if (grabbed != null){
@@ -94,13 +96,19 @@ void mouseReleased(){
       if(hoverbox.a != null){
         hoverbox.merge(grabbed);
       }
-      else{
+      else if (hoverbox.unlocked == true){
         grabbed.x = hoverbox.x;
         grabbed.y = hoverbox.y;
         hoverbox.a = grabbed;
         lastbox.a = null;
         hoverbox = null;
       }
+      else{
+        grabbed.x = lastbox.x;
+        grabbed.y = lastbox.y;
+        lastbox.a = grabbed;
+      }
+      
     }
 
     grabbed = null;

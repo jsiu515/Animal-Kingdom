@@ -7,7 +7,7 @@ class Grid{
    boxes = new ArrayList<Box>();
    for(int x = 0; x < 5;x++){
      for (int y = 0; y < 5;y++){
-       Box bottom = new Box(x*35,y*35);
+       Box bottom = new Box(x*55,y*55);
        if (x >= 3 || y >= 3){
          bottom.unlocked = false;
        }
@@ -56,7 +56,7 @@ class Box{
   }
   void show(){
     fill (255);
-    rect(x,y,30,30);
+    rect(x,y,50,50);
     if(a != null){
       a.show();
     }
@@ -65,7 +65,7 @@ class Box{
     }
   }
   boolean hover(){
-    if((mouseX <= this.x+30 && mouseX >= this.x)&&(mouseY <= this.y+30 && mouseY >= this.y)){
+    if((mouseX <= this.x+50 && mouseX >= this.x)&&(mouseY <= this.y+50 && mouseY >= this.y)){
       return true;
     }
     return false;
@@ -74,7 +74,7 @@ class Box{
     this.a = A;
   }
   boolean clicked(){
-    if(mouseX >= this.x &&mouseX <= this.x+30&& mouseY >= this.y&&mouseY <= this.y+30&&mouseDown){
+    if(mouseX >= this.x &&mouseX <= this.x+50&& mouseY >= this.y&&mouseY <= this.y+50&&mouseDown){
       return true;
     }
     else{

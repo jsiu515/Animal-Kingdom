@@ -12,7 +12,7 @@ class Animal{
     this.wage = bank.get(name);
   }
   void show(){
-    image(image,x,y,30,30);
+    image(image,x,y,50,50);
   }
 }
 
@@ -22,6 +22,6 @@ class Chain extends Animal{
 
   }
   void show(){
-    image(chain,x,y,30,30);
+    image(chain,x,y,50,50);
   }
 }

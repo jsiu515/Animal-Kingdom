@@ -36,8 +36,21 @@ class Grid{
        }
        
      }
-     
-     
+     if(unlock.clicked() && money >= 4000 && boxes.get(i).a != null && boxes.get(i).a.name.equals("Clownfish")){
+       for (int v = 3; v < 14; v+=5){
+         boxes.get(v).unlocked = true;
+       }
+       for (int v = 15; v < 19; v++){
+         boxes.get(v).unlocked = true;
+       }
+       money -= 4000;
+     }
+     if(unlock.clicked() && money >= 100000 && boxes.get(i).a != null && boxes.get(i).a.name.equals("DesertIguana")){
+       for (int v = 0; v < 25; v++){
+         boxes.get(v).unlocked = true;
+       }
+       money -= 100000;
+     }
      fill(255);
      cooldown++;
    }

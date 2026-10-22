@@ -6,7 +6,7 @@ class Button{
     this.y = y;
   }
   public boolean clicked(){
-    if(mouseX >= this.x &&mouseX <= this.x+30&& mouseY >= this.y&&mouseY <= this.y+30&&mouseDown && grabbed == null){
+    if(mouseX >= this.x &&mouseX <= this.x+50&& mouseY >= this.y&&mouseY <= this.y+50&&mouseDown && grabbed == null){
       return true;
     }
     else{
@@ -14,7 +14,7 @@ class Button{
     }
   }
   public void show(){
-    rect(this.x,this.y,30,30);
+    rect(this.x,this.y,50,50);
   }
   
 }

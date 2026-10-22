@@ -3,8 +3,11 @@ PImage chain;
 String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus","Clownfish","ElectricEel","Tadpole", "TreeFrog","Chameleon","DesertIguana","BoxTurtle","Alligator","Pterodactyl","Triceratops","Wolf","Gorilla","Tiger","Elephant","Dragon"};
 HashMap<String,Integer> bank;
 HashMap<String,Integer> cost;
-Button b = new Button(200,200);
+
 Button unlock = new Button(250,250);
+
+Button b = new Button(400,200);
+
 Grid g;
 MoneyMaker m;
 Animal grabbed;
@@ -53,8 +56,8 @@ void draw(){
   m.show();
   m.generateMoney();
   if (grabbed != null){
-    grabbed.x = mouseX;
-    grabbed.y = mouseY;
+    grabbed.x = mouseX-25;
+    grabbed.y = mouseY-25;
     grabbed.show();
   }
   fill(0);

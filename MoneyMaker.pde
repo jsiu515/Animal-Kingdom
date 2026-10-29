@@ -3,9 +3,9 @@ class MoneyMaker{
   int timer = 0;
   public MoneyMaker(){
     crates = new ArrayList<Box>();
-    crates.add(new Box(350,0));
-    crates.add(new Box(290,0));
-    crates.add(new Box(410,0));
+    crates.add(new Box(277.5,0));
+    crates.add(new Box(217.5,0));
+    crates.add(new Box(337.5,0));
   }
   void show(){
     for (int i = 0; i < crates.size();i++){

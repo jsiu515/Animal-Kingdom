@@ -4,9 +4,9 @@ String[] animalNames = {"Amoeba", "Zooplankton","SeaJelly","Starfish","Nautilus"
 HashMap<String,Integer> bank;
 HashMap<String,Integer> cost;
 
-Button unlock = new Button(250,250);
+Button unlock = new Button(387,442);
 
-Button b = new Button(400,200);
+Button b = new Button(167,442);
 
 Grid g;
 MoneyMaker m;

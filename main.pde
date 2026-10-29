@@ -62,8 +62,8 @@ void draw(){
   }
   fill(0);
   text("Money: " + money, 500,50);
-  text("Unlock Grid", 400,400);
-  text("Spawn Amoeba", 500,500);
+  text("Unlock Grid", 378,515);
+  text("Spawn Amoeba", 158,515);
 }
 void mousePressed(){
   mouseDown = true;

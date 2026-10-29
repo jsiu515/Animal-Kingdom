@@ -14,7 +14,7 @@ Animal grabbed;
 Box lastbox;
 Box hoverbox;
 boolean mouseDown;
-int money = 6000;
+int money = 500;
 void setup(){
   size(600,600);
   String path = sketchPath("Animals"); 
@@ -62,6 +62,8 @@ void draw(){
   }
   fill(0);
   text("Money: " + money, 500,50);
+  text("Unlock Grid", 400,400);
+  text("Spawn Amoeba", 500,500);
 }
 void mousePressed(){
   mouseDown = true;

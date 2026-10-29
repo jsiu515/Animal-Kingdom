@@ -22,6 +22,6 @@ class Chain extends Animal{
 
   }
   void show(){
-    image(chain,x,y,50,50);
+    image(chain,x-9,y-9,70,70);
   }
 }

@@ -7,6 +7,7 @@ class Grid{
    boxes = new ArrayList<Box>();
    for(int x = 0; x < 5;x++){
      for (int y = 0; y < 5;y++){
+       
        Box bottom = new Box(x*55,y*55);
        if (x >= 3 || y >= 3){
          bottom.unlocked = false;
@@ -68,7 +69,7 @@ class Box{
     c = new Chain(x,y);
   }
   void show(){
-    fill (255);
+    fill(255);
     rect(x,y,50,50);
     if(a != null){
       a.show();

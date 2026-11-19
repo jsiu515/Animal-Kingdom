@@ -7,10 +7,11 @@ class Grid{
    boxes = new ArrayList<Box>();
    for(int x = 0; x < 5;x++){
      for (int y = 0; y < 5;y++){
-
        Box bottom = new Box(x*55+167.5,y*55+150);
 
        if (x >= 3 || y >= 3){
+         
+
          bottom.unlocked = false;
        }
        boxes.add(bottom);
@@ -38,7 +39,14 @@ class Grid{
        }
        
      }
-     if(unlock.clicked() && money >= 4000 && boxes.get(i).a != null && boxes.get(i).a.name.equals("Clownfish")){
+     
+     if (boxes.get(i).a != null && boxes.get(i).a.name.equals("Clownfish")){
+       clownfishcheck = true;
+     }
+     if (boxes.get(i).a != null && boxes.get(i).a.name.equals("DesertIguana")){
+       dicheck = true;
+     }
+     if(unlock.clicked() && money >= 4000 && boxes.get(i).a != null && clownfishcheck == true){
        for (int v = 3; v < 14; v+=5){
          boxes.get(v).unlocked = true;
        }
@@ -47,7 +55,7 @@ class Grid{
        }
        money -= 4000;
      }
-     if(unlock.clicked() && money >= 100000 && boxes.get(i).a != null && boxes.get(i).a.name.equals("DesertIguana")){
+     if(unlock.clicked() && money >= 100000 && boxes.get(i).a != null && dicheck == true){
        for (int v = 0; v < 25; v++){
          boxes.get(v).unlocked = true;
        }
@@ -71,6 +79,9 @@ class Box{
   }
   void show(){
     fill(255);
+    if (unlocked == false){
+      fill(195, 214, 208);
+    }
     rect(x,y,50,50);
     if(a != null){
       a.show();

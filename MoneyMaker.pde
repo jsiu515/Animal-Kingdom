@@ -3,11 +3,19 @@ class MoneyMaker{
   int timer = 0;
   public MoneyMaker(){
     crates = new ArrayList<Box>();
-    crates.add(new Box(277.5,0));
-    crates.add(new Box(217.5,0));
-    crates.add(new Box(337.5,0));
+    crates.add(new Box(277.5,30));
+    crates.add(new Box(217.5,30));
+    crates.add(new Box(337.5,30));
   }
   void show(){
+    for (int v = 0; v < crates.size();v++){
+       if (crates.get(v).a != null && crates.get(v).a.name.equals("Clownfish")){
+         clownfishcheck = true;
+       }
+       if (crates.get(v).a != null &&crates.get(v).a.name.equals("DesertIguana")){
+         dicheck = true;
+       }
+    }
     for (int i = 0; i < crates.size();i++){
       crates.get(i).show();
       crates.get(i).grabAnimal();

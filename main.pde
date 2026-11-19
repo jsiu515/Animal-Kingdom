@@ -15,6 +15,8 @@ Box lastbox;
 Box hoverbox;
 boolean mouseDown;
 int money = 500;
+boolean clownfishcheck;
+boolean dicheck;
 void setup(){
   size(600,600);
   String path = sketchPath("Animals"); 
@@ -49,7 +51,7 @@ void setup(){
 
 
 void draw(){
-  background(255,255,255);
+  background(237, 209, 152);
   g.show();
   b.show();
   unlock.show();
@@ -61,9 +63,11 @@ void draw(){
     grabbed.show();
   }
   fill(0);
-  text("Money: " + money, 500,50);
-  text("Unlock Grid", 378,515);
-  text("Spawn Amoeba", 158,515);
+  text("Money: $" + money, 500,50);
+  text("Unlock Grid", 382,510);
+  text("Spawn Amoeba: $50", 145,510);
+  text("Unlock Grid Level 1: $4,000",245,550);
+  text("Unlock Grid Level 2: $100,000",240,575);
 }
 void mousePressed(){
   mouseDown = true;
